@@ -18,8 +18,6 @@ $(function () {
 
   var drawFinished = true;
 
-  var drawFinished = true;
-
   socket.on('pulse', function (data) {
     if (!drawFinished) {
       return;
