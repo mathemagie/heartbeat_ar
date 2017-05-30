@@ -1,5 +1,15 @@
+TOC
 
-
+Introduction to the workshop 
+The team
+Introduction to Arduino
+Introduction to the HeartBeat AR
+Review your kit
+Make it blink (LED blink) pour se faire la main sur l'IDE arduino, push du code, console de debug 
+add pulse sensor (test sketch.ino) debug de la valeur dans la console
+intro webAR
+HeartBeat AR
+To go further
 
 # Workshop Heart
 
