@@ -69,3 +69,17 @@ Loader le model heart
 #### Animer le heart avec le pulse sensor
 
 Et voila!
+
+
+#### Conclusion 
+
+visionner court métrage hyper réality 
+
+slides évolution de l'informatique => Desktop =>  mobile => wearable => AR + screenchot lunettes full AR de Faceook 
+
+exemples réalité diminuée, altérée, augmentée, mixte, révélée 
+
+cyborg design 
+
+référénce de livre de SF 
+ 
