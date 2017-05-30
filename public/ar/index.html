@@ -1,52 +1,19 @@
-<!-- Augmented Reality on the Web in 10 lines of html! https://github.com/jeromeetienne/ar.js --> 
+<script src="/socket.io/socket.io.js"></script>
 <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
 <script src="https://rawgit.com/jeromeetienne/ar.js/master/aframe/build/aframe-ar.min.js"></script>
 <script src="https://rawgit.com/donmccurdy/aframe-extras/v2.1.1/dist/aframe-extras.loaders.min.js"></script>  <script>THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master/three.js/'</script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js'></script>
 <script src="https://unpkg.com/aframe-animation-component@^3.2.0/dist/aframe-animation-component.min.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <head>
-  <script>
-    var socket = io.connect("http://localhost:8080");
-    socket.on('message', function(bpm) {
-    console.log('BPM => ' + bpm);
-    var d=document.getElementById("heart");
-    var dur;
-    d.removeAttribute('animation');
-    if (bpm < 60) {
-       console.log('dur  => 800');
-       dur = 800;
-    }
-    if (bpm >= 60 && bpm < 70) {
-       console.log('dur  => 600');
-        dur = 600;
-    }
-     if (bpm >= 70 && bpm < 80) {
-        console.log('dur  => 500');
-        dur = 500;
-    }
-      if (bpm >= 80 && bpm < 120) {
-         console.log('dur  => 400');
-          dur = 400;
-    }
-      if (bpm >= 120 ) {
-         console.log('dur  => 400');
-          dur = 400;
-    }
-    var anim = 'property: scale; dir: alternate-reverse; dur: ' + dur + ';loop: true; from: 0.05 0.05 0.05 ;to: 0.1 0.1 0.1';
-    d.setAttribute('animation',anim );
-          })
-  </script>
-</head>
-aurelien
+ </head>
 <body style='margin : 0px; overflow: hidden;'>
 	<a-scene embedded artoolkit='sourceType: webcam;'>
 	<a-assets>
-      <a-asset-item id="assetAframe" src="model/teapot.ply"></a-asset-item>
+      <a-asset-item id="assetAframe" src="model/heart.ply"></a-asset-item>
   </a-assets>
     <a-entity id='heart' ply-model="src: #assetAframe" position='0 -2 0' rotation='-180 0 0' scale='0.06 0.06 0.06' animation="property: scale; dir: alternate; dur: 1000;loop: true; to: 0.09 0.09 0.09" >
     </a-entity>
 		<a-marker-camera preset='hiro'></a-marker-camera>
 	</a-scene>
+  <script src="main.js"></script>
 </body>
