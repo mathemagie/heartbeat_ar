@@ -62,6 +62,8 @@ Ajouter AR.js et un marker de test
 
 #### Add heart model
 
+Créer le modèle avec MagicaVoxel
+
 Loader le model heart
 
 #### Animer le heart avec le pulse sensor
