@@ -1,12 +1,18 @@
 var five = require("johnny-five"),
     express = require("express"),
     app = express(),
-    http = require("http"),
+    fs = require("fs"),
+    path = require("path"),
     server = require('http').Server(app);
-    io = require('socket.io')(server);
 
 app.use(express.static('public'));
-server.listen(8082);
+
+
+var sslOptions = {
+  key: fs.readFileSync(path.join(__dirname, 'key.pem')),
+  cert: fs.readFileSync(path.join(__dirname, 'cert.pem')),
+  passphrase: 'makery'
+};
 
 
 
@@ -44,3 +50,14 @@ board.on("ready", function() {
 
 
 });
+
+
+var http = require('http').createServer(app).listen(8082, function() {
+    console.log('listening on http://127.0.0.1:8082');
+});
+
+var https = require('https').createServer(sslOptions, app).listen(8443, function() {
+    console.log('listening on https://127.0.0.1:8443');
+});
+
+var io = require('socket.io')(https);
