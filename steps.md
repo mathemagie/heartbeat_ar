@@ -8,17 +8,24 @@ Introduction to Arduino
 
 Introduction to the HeartBeat AR
 
-Review your kit
+Review your kit (liste complète du matos + photo) 
 
-Make it blink (LED blink) pour se faire la main sur l'IDE arduino, push du code, console de debug 
+Make it blink (LED blink) pour se faire la main sur l'IDE arduino, push du code, console de debug (reprendre des éléments du précécent booklet) 
 
-add pulse sensor (test sketch.ino) debug de la valeur dans la console
+add pulse sensor puis test sketch.ino (affichage de la valeur dans la console de debug) 
 
-intro webAR
+graph en temp réel dans la page web 
+
+tracking.js 
+
+intro webAR/aframe
+
+ démo AR-code https://medium.com/arjs/ar-code-a-fast-path-to-augmented-reality-60e51be3cbdf
 
 HeartBeat AR
 
-To go further
+
+
 
 # Workshop Heart
 
