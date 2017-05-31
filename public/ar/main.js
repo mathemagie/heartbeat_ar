@@ -1,35 +1,3 @@
-/*
-    var socket = io.connect("/");
-    socket.on('message', function(bpm) {
-      console.log('BPM => ' + bpm);
-      var d=document.getElementById("heart");
-      var dur;
-      d.removeAttribute('animation');
-      if (bpm < 60) {
-         console.log('dur  => 800');
-         dur = 800;
-      }
-      if (bpm >= 60 && bpm < 70) {
-         console.log('dur  => 600');
-          dur = 600;
-      }
-       if (bpm >= 70 && bpm < 80) {
-          console.log('dur  => 500');
-          dur = 500;
-      }
-        if (bpm >= 80 && bpm < 120) {
-           console.log('dur  => 400');
-            dur = 400;
-      }
-        if (bpm >= 120 ) {
-           console.log('dur  => 400');
-            dur = 400;
-      }
-      var anim = 'property: scale; dir: alternate-reverse; dur: ' + dur + ';loop: true; from: 0.05 0.05 0.05 ;to: 0.1 0.1 0.1';
-      d.setAttribute('animation', anim);
-    })
-*/
-
 function applyBpm(bpm) {
   var d=document.getElementById("heart");
   var dur;
