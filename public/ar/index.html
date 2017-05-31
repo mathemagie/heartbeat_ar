@@ -4,16 +4,15 @@
 <script src="https://rawgit.com/donmccurdy/aframe-extras/v2.1.1/dist/aframe-extras.loaders.min.js"></script>  <script>THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master/three.js/'</script>
 <script src="https://unpkg.com/aframe-animation-component@^3.2.0/dist/aframe-animation-component.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<head>
- </head>
+
 <body style='margin : 0px; overflow: hidden;'>
-	<a-scene embedded artoolkit='sourceType: webcam;'>
-	<a-assets>
+  <a-scene embedded artoolkit='sourceType: webcam;'>
+    <a-assets>
       <a-asset-item id="assetAframe" src="model/heart.ply"></a-asset-item>
-  </a-assets>
-    <a-entity id='heart' ply-model="src: #assetAframe" position='0 -2 0' rotation='-180 0 0' scale='0.06 0.06 0.06' animation="property: scale; dir: alternate; dur: 1000;loop: true; to: 0.09 0.09 0.09" >
+    </a-assets>
+    <a-entity id='heart' ply-model="src: #assetAframe" position='0 -2 0' rotation='-180 0 0' scale='0.06 0.06 0.06' animation="property: scale; dir: alternate; dur: 100;loop: true; to: 0.09 0.09 0.09" >
     </a-entity>
-		<a-marker-camera preset='hiro'></a-marker-camera>
-	</a-scene>
+    <a-marker-camera preset='hiro'></a-marker-camera>
+  </a-scene>
   <script src="main.js"></script>
 </body>
