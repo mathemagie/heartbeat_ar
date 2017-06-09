@@ -40,6 +40,7 @@ $(function () {
 
   var drawFinished = true;
 
+  // on each pulse, detect the peaks and change heart animation
   var bpm = 0;
   socket.on('pulse', function (data) {
    // console.log("pulse", data)
