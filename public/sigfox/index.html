@@ -1,0 +1,60 @@
+<!-- Augmented Reality on the Web in 10 lines of html! https://github.com/jeromeetienne/ar.js --> 
+<script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+<script src="https://rawgit.com/jeromeetienne/ar.js/master/aframe/build/aframe-ar.min.js"></script>
+<script src="https://rawgit.com/donmccurdy/aframe-extras/v2.1.1/dist/aframe-extras.loaders.min.js"></script>  <script>THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master/three.js/'</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://unpkg.com/aframe-animation-component@^3.2.0/dist/aframe-animation-component.min.js"></script>
+
+<head>
+</head>
+<body style='margin : 0px; overflow: hidden;'>
+	<a-scene embedded artoolkit='sourceType: webcam;'>
+   
+	<a-entity id="data_bttb" geometry="primitive: plane"  rotation="260 0 0" material="color: red; shader: flat; opacity: 0">
+  <a-entity
+    id='signal_value' text="width: 2;value: 78;color:red" side="double" scale="4 4 4" position="2 0.5 0">
+    </a-entity>
+    
+
+ </a-entity>
+		<a-marker-camera preset='hiro'></a-marker-camera>
+	</a-scene>
+</body>
+
+<script>
+
+function getDataFromAPI() {
+  $.ajax({
+  url: "https://api.bt.tn/2014-06/7827/status",
+  beforeSend: function(xhr) {
+    xhr.setRequestHeader("'X-Api-Key", "201410AK59008dedmi4jFanRrz5UVJzw_ruqUn1sNWckKM7NGc4g0-uRuaN_HJtE");
+  },
+  success: function(data) {
+    //console.log("signal sigfox =>" + data.signal);
+    console.log(data);
+    var d = "battery : " + data.battery + "\nsignal : " + data.signal +"\nbutton id : " + data.bid + "\nbearer : " + data.bearer;
+    var signal_value = document.querySelector('#signal_value');
+    signal_value.setAttribute('text', 'width: 2;color:red;value:' + d);
+  }
+  });
+
+  $.ajax({
+  url: "https://api.bt.tn/2014-06/7827/counter",
+  beforeSend: function(xhr) {
+    xhr.setRequestHeader("'X-Api-Key", "201410AK59008dedmi4jFanRrz5UVJzw_ruqUn1sNWckKM7NGc4g0-uRuaN_HJtE");
+  },
+  success: function(data) {
+    //console.log("signal sigfox =>" + data.signal);
+    console.log(data.counter);
+    //var d = "battery : " + data.battery + "\nsignal : " + data.signal +"\nbutton id : " + data.bid + "\nbearer : " + data.bearer;
+   var signal_value_value = document.querySelector('#signal_value').getAttribute("text");
+   console.log(signal_value_value.value);
+   var signal_value = document.querySelector('#signal_value');
+   signal_value.setAttribute('text', 'width: 2;color:red;value:' + signal_value_value.value + "\n counter : 145");
+  }
+  });
+}
+window.setInterval(function(){
+  getDataFromAPI();
+}, 1000);
+</script>
