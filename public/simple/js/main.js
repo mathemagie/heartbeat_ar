@@ -18,6 +18,7 @@ $(function () {
 
   var drawFinished = true;
 
+  // on each pulse try to detect a peak and draw the graph
   socket.on('pulse', function (data) {
     if (!drawFinished) {
       return;

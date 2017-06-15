@@ -13,6 +13,7 @@ window.onload = function() {
   var left, top, lastLeft, lastTop;
   var moveTreshold = 20;
 
+  // when face detected, move the heart
   tracker.on("track", function(event) {
     context.clearRect(0, 0, canvas.width, canvas.height)
 
@@ -23,6 +24,7 @@ window.onload = function() {
       context.fillStyle = "#fff"
       context.fillText("x: " + rect.x + "px", rect.x + rect.width + 5, rect.y + 11)
       context.fillText("y: " + rect.y + "px", rect.x + rect.width + 5, rect.y + 22)
+
       // prevent small moves
       left = Math.min(600, rect.x + (rect.width / 3 * 2));
       if (!lastLeft || (Math.abs(left - lastLeft) > moveTreshold)) {
@@ -42,6 +44,7 @@ window.onload = function() {
   gui.add(tracker, "initialScale", 1.0, 10.0).step(0.1)
   gui.add(tracker, "stepSize", 1, 5).step(0.1)
 
+  // animate heart size based on bpm
   function applyBpm(bpm) {
     var d = document.getElementById("heart")
     var bpmdiv = document.getElementById("bpm")
@@ -81,6 +84,7 @@ window.onload = function() {
 
   var drawFinished = true
 
+  // on each pulse, try to detect a peak and make heart beat
   var bpm = 0
   socket.on("pulse", function(data) {
     //console.log("pulse", data)
