@@ -1,6 +1,14 @@
 var peak_detect_offset = 20;
 var peak_mininum_interval = 300;
 
+function showQRcode(url) {
+  $("#QRcode").qrcode({
+    size: 400,
+    fill: '#000',
+    text: url
+  });
+}
+
 $(function () {
   var socket = io.connect('/'),
       pulse_data = [],
@@ -17,6 +25,12 @@ $(function () {
   const avg = arr => sum(arr) / arr.length
 
   var drawFinished = true;
+
+  socket.on('url', function (url) {
+    if (!('ontouchstart' in window)) {
+      showQRcode(url + '/simple')
+    }
+  })
 
   // on each pulse try to detect a peak and draw the graph
   socket.on('pulse', function (data) {

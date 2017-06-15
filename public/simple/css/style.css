@@ -34,3 +34,9 @@ span.heart {
 #placeholder {
   height: 100%;
 }
+
+#QRcode {
+  position: absolute;
+  bottom:0;
+  right:0;
+}

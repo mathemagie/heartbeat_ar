@@ -3,6 +3,7 @@ var five = require("johnny-five"),
   app = express(),
   fs = require("fs"),
   path = require("path"),
+  ip = require('ip'),
   server = require("http").Server(app)
 
 
@@ -33,6 +34,9 @@ var https = require("https").createServer(sslOptions, app).listen(8443, function
 io.attach(http)
 io.attach(https)
 
+io.on("connection", function(socket) {
+  socket.emit("url", `https://${ip.address()}:8443`)
+})
 
 // johnny-five board autodetection
 var board = new five.Board()
@@ -51,8 +55,6 @@ board.on("ready", function() {
     io.sockets.emit("pulse", this.scaled)
   })
 
-  io.on("connection", function(socket) {
-    board.info("socket.io", "incoming connection")
-  })
+
 })
 
