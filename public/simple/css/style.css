@@ -41,4 +41,6 @@ span.heart {
   right:0;
   width: 400px;
   height: 400px;
+  background:white;
+  border:2px solid white;
 }

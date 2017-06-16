@@ -1,12 +1,15 @@
 
 function showQRcode(url) {
-  $("#QRcode").qrcode({
-    size: 400,
-    fill: '#000',
-    text: url
-  });
+  if (!('ontouchstart' in window)) {
+    $("#QRcode").qrcode({
+      size: 400,
+      fill: '#000',
+      text: url
+    });
+  } else {
+    $("#QRcode").hide();
+  }
 }
-
 
 window.onload = function() {
   var video = document.getElementById("video")
@@ -95,9 +98,7 @@ window.onload = function() {
   var drawFinished = true
 
   socket.on('url', function (url) {
-    if (!('ontouchstart' in window)) {
-      showQRcode(url + '/trackingjs')
-    }
+    showQRcode(url + '/trackingjs')
   })
 
   // on each pulse, try to detect a peak and make heart beat
