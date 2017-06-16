@@ -1,3 +1,13 @@
+
+
+function showQRcode(url) {
+  $("#QRcode").qrcode({
+    size: 400,
+    fill: '#000',
+    text: url
+  });
+}
+
 function applyBpm(bpm) {
   var d=document.getElementById("heart");
   var dur;
@@ -39,6 +49,12 @@ $(function () {
       freq = 0;
 
   var drawFinished = true;
+
+  socket.on('url', function (url) {
+    if (!('ontouchstart' in window)) {
+      showQRcode(url + '/ar')
+    }
+  })
 
   // on each pulse, detect the peaks and change heart animation
   var bpm = 0;

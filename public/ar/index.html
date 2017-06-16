@@ -3,7 +3,18 @@
 <script src="https://rawgit.com/jeromeetienne/ar.js/master/aframe/build/aframe-ar.min.js"></script>
 <script src="https://rawgit.com/donmccurdy/aframe-extras/v2.1.1/dist/aframe-extras.loaders.min.js"></script>  <script>THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master/three.js/'</script>
 <script src="https://unpkg.com/aframe-animation-component@^3.2.0/dist/aframe-animation-component.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="./js/jquery.js"></script>
+<script src="./js/jquery-qrcode-0.14.0.min.js"></script>
+<style>
+
+#QRcode {
+  position: absolute;
+  bottom:0;
+  right:0;
+  width: 400px;
+  height: 400px;
+}
+</style>
 
 <body style='margin : 0px; overflow: hidden;'>
   <a-scene embedded artoolkit='sourceType: webcam;'>
@@ -14,5 +25,6 @@
     </a-entity>
     <a-marker-camera preset='hiro'></a-marker-camera>
   </a-scene>
-  <script src="main.js"></script>
+  <div id='QRcode'></div>
+  <script src="./js/main.js"></script>
 </body>

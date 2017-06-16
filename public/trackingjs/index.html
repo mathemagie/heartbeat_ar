@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <title>tracking.js - face with camera</title>
   <script src="/socket.io/socket.io.js"></script>
+  <script src="./js/jquery.js"></script>
+  <script src="./js/jquery-qrcode-0.14.0.min.js"></script>
   <script src="./js/tracking.min.js"></script>
   <script src="./js/face.min.js"></script>
   <script src="./js/dat.gui.min.js"></script>
@@ -25,6 +27,13 @@
     color:red;
     display:inline-block;
   }
+  #QRcode {
+    position: absolute;
+    bottom:0;
+    right:0;
+    width: 400px;
+    height: 400px;
+  }
   </style>
 </head>
 <body>
@@ -37,6 +46,7 @@
     <div id="heart" style="">♥️</div>
   </div>
   <div id="bpm"></div>
+  <div id='QRcode'></div>
 
   <script src="./js/main.js"></script>
 
