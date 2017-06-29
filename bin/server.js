@@ -39,7 +39,9 @@ io.on("connection", function(socket) {
 })
 
 // johnny-five board autodetection
-var board = new five.Board()
+var board = new five.Board({
+  // port: 'COM15'
+})
 
 board.on("ready", function() {
   board.info("Board", "ready")
